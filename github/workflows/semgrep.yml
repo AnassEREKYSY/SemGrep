@@ -1,0 +1,21 @@
+name: Semgrep Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  semgrep_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Semgrep
+      run: |
+        pip install semgrep
+
+    - name: Run Semgrep scan
+      run: semgrep --lang=python app.py
