@@ -11,7 +11,7 @@ def hello():
 @app.route('/exec', methods=['POST'])
 def execute():
     data = request.form.get('data')
-    # eval(data) # Vulnérabilité ici : utilisation dangereuse de eval()
+    eval(data) # Vulnérabilité ici : utilisation dangereuse de eval()
     return 'ok'
 
 # Démarrage du serveur
